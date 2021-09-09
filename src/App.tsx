@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { MainStyles, Theme } from "./theme";
 
-function App() {
+export type ThemeType = typeof Theme;
+
+const App = () => {
   return (
     <ThemeProvider theme={Theme}>
       <MainStyles />
@@ -19,6 +21,6 @@ function App() {
       </BrowserRouter>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

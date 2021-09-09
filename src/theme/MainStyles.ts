@@ -1,9 +1,14 @@
+import { ThemeType } from "./../App";
 import { normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import fontFaces from "./fonts";
 import colors from "./colors";
 
-const MainStyles = createGlobalStyle`
+type Props = {
+  theme: ThemeType;
+};
+
+const MainStyles = createGlobalStyle<Props>`
   ${normalize}
   ${fontFaces}
 
@@ -16,7 +21,7 @@ const MainStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--font-primary);
-    /* ${({ theme }) => theme.typography.body} */
+    ${({ theme }) => theme.typography.body}
     box-sizing: border-box;
   }
   *,

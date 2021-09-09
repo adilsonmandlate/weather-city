@@ -1,7 +1,6 @@
-import { DefaultTheme } from "styled-components";
 import typography from "./typography";
 
-const theme: DefaultTheme = {
+const theme = {
   typography,
 };
 
