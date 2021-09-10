@@ -15,7 +15,7 @@ const MainStyles = createGlobalStyle<Props>`
   :root {
     ${colors}
     --font-primary: "Avenir", sans-serif;
-    --layout-width: 1100px;
+    --layout-width: 1280px;
   }
   html {
     -webkit-font-smoothing: antialiased;
@@ -31,7 +31,7 @@ const MainStyles = createGlobalStyle<Props>`
   }
   body {
     color: var(--colors-midnight);
-    background-color: var(--colors-lightGrey);
+    background-color: var(--colors-white);
   }
 `;
 
