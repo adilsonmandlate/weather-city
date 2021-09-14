@@ -83,6 +83,9 @@ const LoadingMessage = styled.p`
   font-weight: 700;
   text-align: center;
   color: var(--colors-concrete);
+  @media (min-width: 820px) {
+    text-align: left;
+  }
 `;
 
 const Sidebar: FC<Props> = ({
