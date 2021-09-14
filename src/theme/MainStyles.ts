@@ -15,7 +15,7 @@ const MainStyles = createGlobalStyle<Props>`
   :root {
     ${colors}
     --font-primary: "Avenir", sans-serif;
-    --layout-width: 1280px;
+    --layout-width: 1480px;
   }
   html {
     -webkit-font-smoothing: antialiased;
