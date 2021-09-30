@@ -24,7 +24,7 @@ const Home = () => {
 
   const URL = `${API_URL}?q=${city}&units=${unit}&appid=${API_KEY}`;
   const { data, error } = useSWR(URL, fetcher);
-  const loading = (!error && !data) || error;
+  const loading = !error && !data;
 
   const weatherData = customWeatherData(data);
   const currentWeather = weatherData?.list[new Date().getDate()]?.[0];
@@ -34,6 +34,7 @@ const Home = () => {
     <Container>
       <Sidebar
         loading={loading}
+        error={error}
         inputValue={city}
         onSearch={setCity}
         unit={unit}
@@ -43,6 +44,7 @@ const Home = () => {
       />
       <Details
         loading={loading}
+        error={error}
         unit={unit}
         forecast={forecast}
         weatherData={data}

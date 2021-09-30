@@ -7,6 +7,7 @@ import { Icons } from "components";
 type Props = {
   inputValue: string;
   loading: boolean;
+  error: any;
   unit: string;
   onUnitChange: (value: string) => void;
   onSearch: (value: string) => void;
@@ -91,6 +92,7 @@ const LoadingMessage = styled.p`
 const Sidebar: FC<Props> = ({
   inputValue,
   unit,
+  error,
   loading,
   onUnitChange,
   onSearch,
@@ -107,8 +109,9 @@ const Sidebar: FC<Props> = ({
       />
 
       {loading && <LoadingMessage>Loading data...</LoadingMessage>}
+      {error && <LoadingMessage>N/A</LoadingMessage>}
 
-      {!loading && (
+      {!loading && !error && (
         <DataContainer>
           <Icons
             mode={currentWeather?.sys?.pod}

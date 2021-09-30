@@ -7,6 +7,7 @@ import styled from "styled-components";
 type Props = {
   unit: string;
   loading: boolean;
+  error: any;
   forecast: CustomList[];
   weatherData: WeatherAPIType;
 };
@@ -102,15 +103,22 @@ const hourHelper = (hour: number): string => {
   return hour > 9 ? `${hour}` : `0${hour}`;
 };
 
-const Details: FC<Props> = ({ forecast, loading, weatherData, unit }) => {
+const Details: FC<Props> = ({
+  forecast,
+  loading,
+  error,
+  weatherData,
+  unit,
+}) => {
   const listMapped = weatherData?.list?.map(mapWeatherData)[0];
 
   return (
     <Container>
       <TitleDescript>Week Forecast</TitleDescript>
       {loading && <LoadingMessage>Loading data...</LoadingMessage>}
+      {error && <LoadingMessage>N/A</LoadingMessage>}
 
-      {!loading && (
+      {!loading && !error && (
         <>
           <Grid>
             {forecast?.map((data) => {
@@ -131,7 +139,7 @@ const Details: FC<Props> = ({ forecast, loading, weatherData, unit }) => {
         </>
       )}
 
-      {!loading && (
+      {!loading && !error && (
         <>
           <TitleDescript>{"Today's"} Highlight</TitleDescript>
           <GridBig>
